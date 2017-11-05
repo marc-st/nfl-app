@@ -32,6 +32,26 @@ en:
         title: Contact Us
         contact_us: Complete the following form to get in touch with us.
         
+        #contact form
+        
+        name: "Name:"
+        enter_name: Enter your name
+        
+        email: "Email:"
+        enter_email: Enter your email
+        
+        telephone: "Telephone:"
+        enter_telephone: Enter your telephone
+        
+        message: "Message:"
+        enter_message: Enter your message
+        
+        submit: Submit
+        
+    request_contact:
+        no_email: You must supply a valid email
+        email_sent: Thank you. We will be in touch shortly.
+        
   shared:
     header:
         head: NFL Home Page
