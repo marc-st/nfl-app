@@ -48,7 +48,7 @@ en:
         
         submit: Submit
         
-    request_contact:
+    request_path:
         no_email: You must supply a valid email
         email_sent: Thank you. We will be in touch shortly.
         
