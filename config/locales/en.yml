@@ -22,3 +22,18 @@
 en:
   app_title: NFL Web App
   app_description: A Web App to display fixtures/results/standings
+  
+  home:
+    home:
+        title: Home Page
+        welcome: Welcome to the homepage of the NFL Web App
+        
+    contact:
+        title: Contact Us
+        contact_us: Complete the following form to get in touch with us.
+        
+  shared:
+    header:
+        head: NFL Home Page
+    footer:    
+        foot: Author  Marc Stevens
