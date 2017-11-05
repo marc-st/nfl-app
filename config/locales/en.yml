@@ -20,4 +20,5 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  app_title: NFL Web App
+  app_description: A Web App to display fixtures/results/standings
