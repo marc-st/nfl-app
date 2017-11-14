@@ -27,6 +27,8 @@ gem 'haml-rails'
 gem 'bootstrap-sass', '~>3.3.6'
 gem 'modernizr-rails'
 
+gem 'espn_scraper', git: 'git://github.com/aj0strow/espn-scraper.git'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   
+  resources :games
   get 'contact', to: 'home#contact'
+  get 'scores', to: 'home#scores'
+  
   post 'request_contact', to: 'home#request_contact'
 
   root 'home#home'

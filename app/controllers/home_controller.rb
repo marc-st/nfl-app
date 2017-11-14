@@ -1,8 +1,17 @@
+require 'espn_scraper'
+
 class HomeController < ApplicationController
   def contact
   end
   
   def home
+  end
+  
+  def scores
+    scores = ESPN.get_nfl_scores(2017, 8)
+    scores.each { |game| 
+      @game = Game.new
+    }
   end
   
   def request_contact

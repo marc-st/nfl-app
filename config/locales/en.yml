@@ -27,6 +27,10 @@ en:
     home:
         title: Home Page
         welcome: Welcome to the homepage of the NFL Web App
+    
+    standings:
+        nfc: NFC
+        afc: AFC
         
     contact:
         title: Contact Us
