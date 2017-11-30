@@ -1,31 +1,22 @@
-%h1 Listing games
+%div{:class=>"scores"}
+  = form_tag update_table_path, method: 'post' do
+    %div{:class=>"formitem"}
+      = label_tag :year, t('.year')
+      = number_field_tag :year, '', title: t('.enter_year'), size: 50, in: 2000...2017
+    
+      = label_tag :week, t('.week')
+      = number_field_tag :week, '', title: t('.enter_week'), in: 1...9
 
-%table
-  %thead
-    %tr
-      %th Home
-      %th Homescore
-      %th Away
-      %th Awayscore
-      %th Date
-      %th League
-      %th
-      %th
-      %th
+      = submit_tag t('.find')
 
-  %tbody
-    - @games.each do |game|
-      %tr
-        %td= game.home
-        %td= game.homescore
-        %td= game.away
-        %td= game.awayscore
-        %td= game.date
-        %td= game.league
-        %td= link_to 'Show', game
-        %td= link_to 'Edit', edit_game_path(game)
-        %td= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' }
-
+  %div{:class=>"tablewrap"}
+    %div{:class=>"scorestable"}
+      - @games.each do |game|
+        %div{:class=>"game"}
+          %h2{:class=>"item"}= game.home
+          %h2{:class=>"item"}= game.homescore
+          %h2{:class=>"item"} -
+          %h2{:class=>"item"}= game.awayscore
+          %h2{:class=>"item"}= game.away
+        %hr
 %br
-
-= link_to 'New Game', new_game_path

@@ -7,6 +7,8 @@ one:
   awayscore: 1
   date: 2017-11-14
   league: MyString
+  year: 2017
+  week: 1
 
 two:
   home: MyString
@@ -15,3 +17,6 @@ two:
   awayscore: 1
   date: 2017-11-14
   league: MyString
+  year: 2017
+  week: 2
+  

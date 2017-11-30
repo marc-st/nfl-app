@@ -9,4 +9,4 @@
 first = Game.where(home: 'Home Team').first
 first.delete if first
 
-games = Game.create([home: 'Home Team', homescore: 0, away: 'Away Team', awayscore: 0, date: "00-00-0000", league: 'League'])
+games = Game.create([home: 'Home Team', homescore: 0, away: 'Away Team', awayscore: 0, date: "00-00-0000", league: 'League', year: 0, week: 0])

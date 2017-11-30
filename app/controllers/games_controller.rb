@@ -1,3 +1,5 @@
+require 'espn_scraper'
+
 class GamesController < ApplicationController
   before_action :set_game, only: [:show, :edit, :update, :destroy]
 
@@ -50,7 +52,31 @@ class GamesController < ApplicationController
       end
     end
   end
-
+  
+  def update_table
+    
+    puts "Made it to the update table method"
+    puts params[:year]
+    
+    if !(Game.where(year: params[:year], week: params[:week]).exists?)
+      scores = ESPN.get_nfl_scores(params[:year], params[:week])
+      scores.each { |item|
+        @game = Game.new
+        @game.home = item[:home_team]
+        @game.homescore = item[:home_score]
+        @game.away = item[:away_team]
+        @game.awayscore = item[:away_score]
+        @game.date = item[:game_date]
+        @game.league = item[:league]
+        @game.year = params[:year]
+        @game.week = params[:week]
+        @game.save
+        Rails.logger.info(@game.errors.inspect)
+      }
+    end
+    # load table
+  end
+  
   # DELETE /games/1
   # DELETE /games/1.json
   def destroy
@@ -66,9 +92,8 @@ class GamesController < ApplicationController
     def set_game
       @game = Game.find(params[:id])
     end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def game_params
-      params.require(:game).permit(:home, :homescore, :away, :awayscore, :date, :league)
+      params.permit(:home, :homescore, :away, :awayscore, :date, :league, :year, :week)
     end
 end

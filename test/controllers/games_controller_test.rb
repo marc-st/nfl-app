@@ -16,14 +16,6 @@ class GamesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create game" do
-    assert_difference('Game.count') do
-      post :create, game: { away: @game.away, awayscore: @game.awayscore, date: @game.date, home: @game.home, homescore: @game.homescore, league: @game.league }
-    end
-
-    assert_redirected_to game_path(assigns(:game))
-  end
-
   test "should show game" do
     get :show, id: @game
     assert_response :success

@@ -56,8 +56,18 @@ en:
         no_email: You must supply a valid email
         email_sent: Thank you. We will be in touch shortly.
         
+  games:
+    index:
+        year: "Year: "
+        enter_year: Enter Year
+        
+        week: "Week: "
+        enter_week: Enter Week
+        
+        find: Find
+        
   shared:
     header:
         head: NFL Home Page
-    footer:    
+    footer:
         foot: Author  Marc Stevens

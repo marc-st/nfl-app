@@ -5,8 +5,10 @@ class CreateGames < ActiveRecord::Migration
       t.integer :homescore
       t.string :away
       t.integer :awayscore
-      t.date :date
+      t.string :date
       t.string :league
+      t.integer :year
+      t.integer :week
 
       t.timestamps null: false
     end
