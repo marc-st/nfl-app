@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :players
   resources :games 
   
   get 'contact', to: 'home#contact'

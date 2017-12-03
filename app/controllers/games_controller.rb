@@ -55,7 +55,7 @@ class GamesController < ApplicationController
   
   def update_table
 
-    # NflData::API::Statline.get_passing(1, 2014)
+    puts NflData::API::Statline.get_passing(1, 2014)
     # NflData::API::Player.get_quarterbacks
     
     if !(Game.where(year: params[:year], week: params[:week]).exists?)
