@@ -6,7 +6,7 @@ class GamesController < ApplicationController
   # GET /games
   # GET /games.json
   def index
-    @games = Game.all
+    @games = Game.where("year = ? AND week = ?", params[:year], params[:week])
   end
 
   # GET /games/1
@@ -54,12 +54,13 @@ class GamesController < ApplicationController
   end
   
   def update_table
-    
-    puts "Made it to the update table method"
-    puts params[:year]
+
+    # NflData::API::Statline.get_passing(1, 2014)
+    # NflData::API::Player.get_quarterbacks
     
     if !(Game.where(year: params[:year], week: params[:week]).exists?)
       scores = ESPN.get_nfl_scores(params[:year], params[:week])
+      
       scores.each { |item|
         @game = Game.new
         @game.home = item[:home_team]
@@ -71,11 +72,12 @@ class GamesController < ApplicationController
         @game.year = params[:year]
         @game.week = params[:week]
         @game.save
-        Rails.logger.info(@game.errors.inspect)
       }
     end
     # load table
+    redirect_to index_path(year: params[:year], week: params[:week])
   end
+  
   
   # DELETE /games/1
   # DELETE /games/1.json

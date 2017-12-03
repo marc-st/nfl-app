@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get 'contact', to: 'home#contact'
   get 'scores', to: 'home#scores'
   
+  get 'games#index' => 'games#index', :as => :index
+  
   post 'request_contact', to: 'home#request_contact'
   post 'update_table', to: 'games#update_table'
 
