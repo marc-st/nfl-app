@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Nameid:
+  = @player_stat.nameid
+%p
+  %b Year:
+  = @player_stat.year
+%p
+  %b Week:
+  = @player_stat.week
+%p
+  %b Rush:
+  = @player_stat.rush
+%p
+  %b Pass:
+  = @player_stat.pass
+
+= link_to 'Edit', edit_player_stat_path(@player_stat)
+\|
+= link_to 'Back', player_stats_path

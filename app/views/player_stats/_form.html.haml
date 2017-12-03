@@ -1,0 +1,25 @@
+= form_for @player_stat do |f|
+  - if @player_stat.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@player_stat.errors.count, "error")} prohibited this player_stat from being saved:"
+      %ul
+        - @player_stat.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :nameid
+    = f.number_field :nameid
+  .field
+    = f.label :year
+    = f.number_field :year
+  .field
+    = f.label :week
+    = f.number_field :week
+  .field
+    = f.label :rush
+    = f.number_field :rush
+  .field
+    = f.label :pass
+    = f.number_field :pass
+  .actions
+    = f.submit 'Save'
