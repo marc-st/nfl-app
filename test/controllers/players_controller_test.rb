@@ -2,7 +2,7 @@ require 'test_helper'
 
 class PlayersControllerTest < ActionController::TestCase
   setup do
-    @player = players(:one)
+    @player = players(:two)
   end
 
   test "should get index" do
@@ -18,7 +18,7 @@ class PlayersControllerTest < ActionController::TestCase
 
   test "should create player" do
     assert_difference('Player.count') do
-      post :create, player: { image: @player.image, name: @player.name, nameid: @player.nameid, team: @player.team }
+      post :create, player: { image: @player.image, name: @player.name, nameid: @player.nameid + 1, team: @player.team }
     end
 
     assert_redirected_to player_path(assigns(:player))

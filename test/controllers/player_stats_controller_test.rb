@@ -18,7 +18,7 @@ class PlayerStatsControllerTest < ActionController::TestCase
 
   test "should create player_stat" do
     assert_difference('PlayerStat.count') do
-      post :create, player_stat: { nameid: @player_stat.nameid, pass: @player_stat.pass, rush: @player_stat.rush, week: @player_stat.week, year: @player_stat.year }
+      post :create, player_stat: { nameid: @player_stat.nameid + 1, pass: @player_stat.pass, rating: @player_stat.rating, week: @player_stat.week, year: @player_stat.year }
     end
 
     assert_redirected_to player_stat_path(assigns(:player_stat))

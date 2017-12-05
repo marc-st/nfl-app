@@ -1,29 +1,26 @@
-%h1 Listing player_stats
+%div{:class=>"stats"}
+  = form_tag update_stats_path, method: 'post' do
+    %div{:class=>"formitem"}
+      = label_tag :year, t('.year')
+      = number_field_tag :year, '', title: t('.enter_year'), size: 50, in: 2000...2017
+    
+      = label_tag :week, t('.week')
+      = number_field_tag :week, '', title: t('.enter_week'), in: 1...9
 
-%table
-  %thead
-    %tr
-      %th Nameid
-      %th Year
-      %th Week
-      %th Rush
-      %th Pass
-      %th
-      %th
-      %th
+      = submit_tag t('.find')
 
-  %tbody
-    - @player_stats.each do |player_stat|
-      %tr
-        %td= player_stat.nameid
-        %td= player_stat.year
-        %td= player_stat.week
-        %td= player_stat.rush
-        %td= player_stat.pass
-        %td= link_to 'Show', player_stat
-        %td= link_to 'Edit', edit_player_stat_path(player_stat)
-        %td= link_to 'Destroy', player_stat, method: :delete, data: { confirm: 'Are you sure?' }
-
+  %div{:class=>"tablewrap"}
+    %div{:class=>"statstable"}
+      %h2{:class=>"item"}=t('.player')
+      %h2{:class=>"item"}=t('.pass')
+      %h2{:class=>"item"}=t('.rating')
+      %hr
+      - @player_stats.each do |stat|
+        %div
+          %h2{:class=>"item"}= stat.nameid
+          %h2{:class=>"item"}= stat.pass
+          %h2{:class=>"item"}= stat.rating
+        %hr
 %br
 
 = link_to 'New Player stat', new_player_stat_path

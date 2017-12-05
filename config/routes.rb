@@ -1,16 +1,16 @@
 Rails.application.routes.draw do
   
-  resources :player_stats
+  resources :player_stats, except: :index
   resources :players
   resources :games 
   
   get 'contact', to: 'home#contact'
-  get 'scores', to: 'home#scores'
   
-  get 'games#index' => 'games#index', :as => :index
+  get 'player_stats', to: 'player_stats#index'
   
   post 'request_contact', to: 'home#request_contact'
-  post 'update_table', to: 'games#update_table'
+  post 'update_games', to: 'games#update_games'
+  post 'update_stats', to: 'player_stats#update_stats'
 
   root 'home#home'
 

@@ -4,7 +4,7 @@ class CreatePlayerStats < ActiveRecord::Migration
       t.integer :nameid
       t.integer :year
       t.integer :week
-      t.integer :rush
+      t.float   :rating
       t.integer :pass
 
       t.timestamps null: false

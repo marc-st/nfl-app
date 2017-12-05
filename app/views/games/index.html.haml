@@ -1,5 +1,5 @@
 %div{:class=>"scores"}
-  = form_tag update_table_path, method: 'post' do
+  = form_tag update_games_path, method: 'post' do
     %div{:class=>"formitem"}
       = label_tag :year, t('.year')
       = number_field_tag :year, '', title: t('.enter_year'), size: 50, in: 2000...2017

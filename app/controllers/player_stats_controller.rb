@@ -1,10 +1,12 @@
+require 'json'
+
 class PlayerStatsController < ApplicationController
   before_action :set_player_stat, only: [:show, :edit, :update, :destroy]
 
   # GET /player_stats
   # GET /player_stats.json
   def index
-    @player_stats = PlayerStat.all
+    @player_stats = PlayerStat.where("year = ? AND week = ?", params[:year], params[:week]).order(pass: :desc)
   end
 
   # GET /player_stats/1
@@ -49,6 +51,25 @@ class PlayerStatsController < ApplicationController
         format.json { render json: @player_stat.errors, status: :unprocessable_entity }
       end
     end
+  end
+  def update_stats 
+    # load statistics here
+    if !(PlayerStat.where(year: params[:year], week: params[:week]).exists?)
+      stats = JSON.parse(NflData::API::Statline.get_passing(params[:week], params[:year]))
+      puts stats
+      stats.each { |item|
+        @player_stat = PlayerStat.new
+        @player_stat.nameid = item["nfl_player_id"]
+        @player_stat.week = item["week"]
+        @player_stat.year = item["year"]
+        @player_stat.rating = item["qb_rating"]
+        @player_stat.pass = item["pass_yards"]
+        @player_stat.save
+    }
+    
+    end
+    # load table
+    redirect_to player_stats_path(year: params[:year], week: params[:week])
   end
 
   # DELETE /player_stats/1

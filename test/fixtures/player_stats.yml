@@ -4,12 +4,12 @@ one:
   nameid: 1
   year: 1
   week: 1
-  rush: 1
+  rating: 1
   pass: 1
 
 two:
-  nameid: 1
+  nameid: 2
   year: 1
   week: 1
-  rush: 1
+  rating: 1
   pass: 1

@@ -65,6 +65,19 @@ en:
         enter_week: Enter Week
         
         find: Find
+  player_stats:
+    index:
+        year: "Year: "
+        enter_year: Enter Year
+        
+        week: "Week: "
+        enter_week: Enter Week
+        
+        find: Find
+        
+        player: Player
+        pass: Pass Yards
+        rush: QB Rating
         
   shared:
     header:

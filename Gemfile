@@ -26,6 +26,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'haml-rails'
 gem 'bootstrap-sass', '~>3.3.6'
 gem 'modernizr-rails'
+gem 'hirb'
 
 gem 'espn_scraper', git: 'git://github.com/aj0strow/espn-scraper.git'
 gem 'nfl_data'

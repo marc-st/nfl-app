@@ -53,10 +53,9 @@ class GamesController < ApplicationController
     end
   end
   
-  def update_table
-
-    puts NflData::API::Statline.get_passing(1, 2014)
-    # NflData::API::Player.get_quarterbacks
+  def update_games
+    
+    puts NflData::API::Player.get_quarterbacks
     
     if !(Game.where(year: params[:year], week: params[:week]).exists?)
       scores = ESPN.get_nfl_scores(params[:year], params[:week])
@@ -75,7 +74,7 @@ class GamesController < ApplicationController
       }
     end
     # load table
-    redirect_to index_path(year: params[:year], week: params[:week])
+    redirect_to games_path(year: params[:year], week: params[:week])
   end
   
   
