@@ -1,2 +1,20 @@
-%h1=t('.title')
-%p=t('.welcome')
+//%h1=t('.title')
+//%p=t('.welcome')
+
+%div{:class=>"wrap"}
+    = link_to t('.games'), games_path
+    %hr
+%div{:class=>"wrap"}
+    = link_to t('.stats'), player_stats_path
+    %hr
+%div{:class=>"wrap"}
+    = link_to t('.players'), players_path
+    %hr
+%div{:class=>"wrap"}
+    = link_to t('.contact'), contact_path
+    %hr
+    
+
+    
+
+    

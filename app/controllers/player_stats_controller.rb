@@ -58,20 +58,20 @@ class PlayerStatsController < ApplicationController
       stats = JSON.parse(NflData::API::Statline.get_passing(params[:week], params[:year]))
       puts stats
       stats.each { |item|
-        @player_stat = PlayerStat.new
-        @player_stat.nameid = item["nfl_player_id"]
-        @player_stat.week = item["week"]
-        @player_stat.year = item["year"]
-        @player_stat.rating = item["qb_rating"]
-        @player_stat.pass = item["pass_yards"]
+        @player = Player.find_by_nameid(item["nfl_player_id"])
+        if !(@player)
+          @player = Player.create(nameid: item["nfl_player_id"], name: "Unknown", team: "Unknown", image: "Unknown")
+          @player.save
+        end
+        @player_stat = @player.player_stats.create(nameid: item["nfl_player_id"], week: item["week"], year: item["year"],
+        rating: item["qb_rating"], pass: item["pass_yards"])
         @player_stat.save
     }
-    
     end
     # load table
     redirect_to player_stats_path(year: params[:year], week: params[:week])
   end
-
+  
   # DELETE /player_stats/1
   # DELETE /player_stats/1.json
   def destroy

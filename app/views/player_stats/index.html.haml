@@ -17,10 +17,12 @@
       %hr
       - @player_stats.each do |stat|
         %div
-          %h2{:class=>"item"}= stat.nameid
+          %h2{:class=>"item"}= stat.player.name
           %h2{:class=>"item"}= stat.pass
           %h2{:class=>"item"}= stat.rating
+          - if (stat.player.name=="Unknown")
+            = link_to t('.add_info'), edit_player_path(stat.player.nameid)
         %hr
 %br
 
-= link_to 'New Player stat', new_player_stat_path
+= link_to t('.missing'), new_player_stat_path

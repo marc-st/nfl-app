@@ -1,5 +1,5 @@
-%p = "Dear #{t('.app_title')},"
-%p = "Could you get in touch with me please?"
+%p=t('.welcome')
+%p=t('.welcome2')
 
 %dl
     %dt Name:
@@ -11,10 +11,10 @@
     %dt Telephone:
     %dd= @telephone
     
-%p = @message
+%p=@message
 
-%p = "Thanks, "
-%p = @name
+%p=t('.thanks')
+%p=@name
 
 
     

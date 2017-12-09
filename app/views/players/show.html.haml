@@ -11,7 +11,7 @@
   = @player.team
 %p
   %b Image:
-  = @player.image
+  %img{ src: @player.image }
 
 = link_to 'Edit', edit_player_path(@player)
 \|

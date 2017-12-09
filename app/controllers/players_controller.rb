@@ -7,11 +7,6 @@ class PlayersController < ApplicationController
     @players = Player.all
   end
 
-  # GET /players/1
-  # GET /players/1.json
-  def show
-  end
-
   # GET /players/new
   def new
     @player = Player.new
@@ -48,16 +43,6 @@ class PlayersController < ApplicationController
         format.html { render :edit }
         format.json { render json: @player.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # DELETE /players/1
-  # DELETE /players/1.json
-  def destroy
-    @player.destroy
-    respond_to do |format|
-      format.html { redirect_to players_url, notice: 'Player was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 

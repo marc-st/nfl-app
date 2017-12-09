@@ -1,27 +1,14 @@
 %h1 Listing players
 
-%table
-  %thead
-    %tr
-      %th Name
-      %th Nameid
-      %th Team
-      %th Image
-      %th
-      %th
-      %th
-
-  %tbody
-    - @players.each do |player|
-      %tr
-        %td= player.name
-        %td= player.nameid
-        %td= player.team
-        %td= player.image
-        %td= link_to 'Show', player
-        %td= link_to 'Edit', edit_player_path(player)
-        %td= link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' }
-
+- @players.each do |player|
+  
+  %div{:class=>"wrapper"}
+    %div{:class=>"img_placeholder"}
+      %img{ src: player.image }
+    %div{:class=>"text"}
+      %p=player.name
+      %p=player.team
+      %p=link_to 'Edit', edit_player_path(player)
 %br
 
-= link_to 'New Player', new_player_path
+= link_to t('.new'), new_player_path
