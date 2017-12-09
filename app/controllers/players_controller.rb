@@ -7,11 +7,6 @@ class PlayersController < ApplicationController
     @players = Player.all
   end
 
-  # GET /players/new
-  def new
-    @player = Player.new
-  end
-
   # GET /players/1/edit
   def edit
   end
