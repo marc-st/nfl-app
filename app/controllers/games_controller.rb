@@ -9,9 +9,7 @@ class GamesController < ApplicationController
   end
 
   def update_games
-    
-    puts NflData::API::Player.get_quarterbacks
-    
+
     if !(Game.where(year: params[:year], week: params[:week]).exists?)
       scores = ESPN.get_nfl_scores(params[:year], params[:week])
       
