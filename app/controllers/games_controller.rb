@@ -1,7 +1,6 @@
 require 'espn_scraper'
 
 class GamesController < ApplicationController
-  before_action :set_game, only: [:show, :edit, :update, :destroy]
 
   # GET /games
   # GET /games.json
@@ -34,10 +33,6 @@ class GamesController < ApplicationController
   end
   
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_game
-      @game = Game.find(params[:id])
-    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def game_params
       params.permit(:home, :homescore, :away, :awayscore, :date, :league, :year, :week)
