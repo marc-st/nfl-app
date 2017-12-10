@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171205185034) do
+ActiveRecord::Schema.define(version: 20171210132903) do
 
   create_table "games", force: :cascade do |t|
     t.string   "home"
@@ -27,14 +27,14 @@ ActiveRecord::Schema.define(version: 20171205185034) do
   end
 
   create_table "player_stats", force: :cascade do |t|
-    t.integer  "nameid"
-    t.integer  "year"
-    t.integer  "week"
+    t.integer  "nameid",     null: false
+    t.integer  "year",       null: false
+    t.integer  "week",       null: false
     t.float    "rating"
     t.integer  "pass"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "player_id"
+    t.integer  "player_id",  null: false
   end
 
   add_index "player_stats", ["player_id"], name: "index_player_stats_on_player_id"

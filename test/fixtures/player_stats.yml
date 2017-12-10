@@ -6,6 +6,7 @@ one:
   week: 1
   rating: 1
   pass: 1
+  player_id: 1
 
 two:
   nameid: 2
@@ -13,3 +14,4 @@ two:
   week: 1
   rating: 1
   pass: 1
+  player_id: 2

@@ -24,12 +24,8 @@ players = NflData::API::Player.get_quarterbacks
 players_hash = JSON.parse(players)
 players_hash.each { |item, value|
     value.each { |sub_item|
-        @player = Player.new
-        puts sub_item["nfl_player_id"]
-        @player.nameid = sub_item["nfl_player_id"].to_i
-        @player.name = sub_item["full_name"]
-        @player.team = sub_item["team"]
-        @player.image = sub_item["picture_link"]
+        @player = Player.create(nameid: sub_item["nfl_player_id"].to_i, name: sub_item["full_name"],
+        team: sub_item["team"], image: sub_item["picture_link"])
         @player.save
     }
 }
