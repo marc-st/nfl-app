@@ -16,7 +16,7 @@
       %h2{:class=>"item"}=t('.rating')
       %hr
       - @player_stats.each do |stat|
-        %div
+        %div{:class=>"row"}
           %h2{:class=>"item"}= stat.player.name
           %h2{:class=>"item"}= stat.pass
           %h2{:class=>"item"}= stat.rating

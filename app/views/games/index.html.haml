@@ -2,17 +2,17 @@
   = form_tag update_games_path, method: 'post' do
     %div{:class=>"formitem"}
       = label_tag :year, t('.year')
-      = number_field_tag :year, '', title: t('.enter_year'), size: 50, in: 2000...2017
+      = number_field_tag :year, '', :class => 'form', title: t('.enter_year'), size: 50, in: 2000...2017
     
       = label_tag :week, t('.week')
-      = number_field_tag :week, '', title: t('.enter_week'), in: 1...9
+      = number_field_tag :week, '', :class => 'form', title: t('.enter_week'), in: 1...9
 
       = submit_tag t('.find')
 
   %div{:class=>"tablewrap"}
     %div{:class=>"scorestable"}
       - @games.each do |game|
-        %div{:class=>"game"}
+        %div{:class=>"row"}
           %h2{:class=>"item"}= game.home
           %h2{:class=>"item"}= game.homescore
           %h2{:class=>"item"} -
